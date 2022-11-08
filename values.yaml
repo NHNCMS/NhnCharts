@@ -1,0 +1,3 @@
+ingress:
+  issuer: letsencrypt-prd
+  host: nhn.seproprio.dev

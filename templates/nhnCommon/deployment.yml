@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nhn-common
+  labels:
+    app: nhn-common
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: nhn-common
+      labels:
+        app: nhn-common
+    spec:
+      containers:
+        - name: nhn-common
+          image: rg.nl-ams.scw.cloud/nhn-cms/nhn-common:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: nhn-common

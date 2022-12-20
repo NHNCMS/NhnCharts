@@ -11,10 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Package chart
-      run: helm package nhn-charts
+      run: helm package
       
     - name: Login to the registry
       run: echo "${{ secrets.REGISTRY_KEY }}" | helm registry login rg.nl-ams.scw.cloud/nhn-cms -u nologin --password-stdin
       
     - name: Push the Docker image
-      run: helm push $(ls | grep nhn-charts-) oci://rg.nl-ams.scw.cloud/nhn-cms
+      run: helm push $(ls | grep nhn-chart-) oci://rg.nl-ams.scw.cloud/nhn-cms

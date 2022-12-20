@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Package chart
-      run: helm package
+      run: helm package .
       
     - name: Login to the registry
       run: echo "${{ secrets.REGISTRY_KEY }}" | helm registry login rg.nl-ams.scw.cloud/nhn-cms -u nologin --password-stdin

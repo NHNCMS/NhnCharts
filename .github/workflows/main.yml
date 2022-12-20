@@ -16,5 +16,5 @@ jobs:
     - name: Login to the registry
       run: echo "${{ secrets.REGISTRY_KEY }}" | helm registry login rg.nl-ams.scw.cloud/nhn-cms -u nologin --password-stdin
       
-    - name: Push the Docker image
+    - name: Push the Helm Chart Tgz artifact
       run: helm push $(ls | grep nhn-chart-) oci://rg.nl-ams.scw.cloud/nhn-cms

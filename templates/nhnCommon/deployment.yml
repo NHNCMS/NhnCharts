@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nhn-common
-          image: rg.nl-ams.scw.cloud/nhn-cms/nhn-common:latest
+          image: rg.nl-ams.scw.cloud/nhn-cms/nhn-common:{{ .Values.commonImage }}
           imagePullPolicy: Always
           ports:
             - containerPort: 80

@@ -11,7 +11,7 @@ spec:
     - host: {{ .Values.ingress.host }}
       http:
         paths:
-          - path: /tags(/|$)(.*)
+          - path: {{.Values.nhnTags.ingressPrefix}}(/|$)(.*)
             pathType: Prefix
             backend:
               service:

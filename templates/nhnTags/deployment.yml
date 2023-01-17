@@ -14,7 +14,10 @@ spec:
     spec:
       containers:
         - name: nhn-tags
-          image: rg.nl-ams.scw.cloud/nhn-cms/nhn-tags:{{ .Values.tagsImage }}
+          env:
+            - name: SwaggerPrefix
+              value: {{.Values.nhnTags.ingressPrefix}}
+          image: rg.nl-ams.scw.cloud/nhn-cms/nhn-tags:{{ .Values.nhnTags.image }}
           imagePullPolicy: Always
           ports:
             - containerPort: 80

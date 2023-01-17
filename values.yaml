@@ -3,4 +3,6 @@ ingress:
   host: nhn.seproprio.dev
   
 commonImage: latest
-tagsImage: latest
+nhnTags:
+  image: latest
+  ingressPrefix: /tags

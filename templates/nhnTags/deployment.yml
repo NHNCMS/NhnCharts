@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nhn-tags
+  labels:
+    app: nhn-tags
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: nhn-tags
+      labels:
+        app: nhn-tags
+    spec:
+      containers:
+        - name: nhn-tags
+          image: rg.nl-ams.scw.cloud/nhn-cms/nhn-tags:{{ .Values.tagsImage }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: nhn-tags

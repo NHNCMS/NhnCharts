@@ -26,9 +26,10 @@ The chart requires the following dependencies:
 
 ## Configuration
 The following parameters can be configured in the `values.yaml` file:
-- `commonImage`: image name of the "common" microservice.
-- `nhnTags.image`: tag of the "nhnTags" microservice image to be deployed.
-- `nhnTags.ingressPrefix`: ingress prefix for the "nhnTags" microservice.
+- `categories.image`: image name of the "categories" microservice.
+- `categories.ingressPrefix`:  ingress prefix for the "categories" microservice.
+- `tags.image`: tag of the "tags" microservice image to be deployed.
+- `tags.ingressPrefix`: ingress prefix for the "tags" microservice.
 - `ingress.host`: base hostname for the entire application.
 
 ## Contributing

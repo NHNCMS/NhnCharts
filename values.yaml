@@ -2,7 +2,20 @@ ingress:
   issuer: letsencrypt-prd
   host: nhn.seproprio.dev
   
-commonImage: latest
-nhnTags:
-  image: latest
+mongodb:
+  connectionString: ""
+  databaseName: ""
+
+kafka:
+  connectionString: ""
+  
+tags:
+  image: rg.nl-ams.scw.cloud/nhn-cms/nhn-tags:20230131.1
   ingressPrefix: /tags
+  replicas: 1
+
+categories:
+  image: rg.nl-ams.scw.cloud/nhn-cms/nhn-common:latest
+  ingressPrefix: /categories
+  replicas: 1
+  

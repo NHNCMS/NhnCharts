@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nhn-tags
+  name: nhn-categories
   labels:
-    app: nhn-tags
+    app: nhn-categories
 spec:
-  replicas: {{ .Values.tags.replicas }}
+  replicas: {{ .Values.categories.replicas }}
   template:
     metadata:
-      name: nhn-tags
+      name: nhn-categories
       labels:
-        app: nhn-tags
+        app: nhn-categories
     spec:
       containers:
-        - name: nhn-tags
+        - name: nhn-categories
           env:
             - name: SwaggerPrefix
-              value: {{ .Values.tags.ingressPrefix }}
-            - name: nhn__MongoDbParameters__ConnectionString
+              value: {{ .Values.categories.ingressPrefix }}
+            - name: nhn.MongoDbParameters.ConnectionString
               value: {{ .Values.mongodb.connectionString }}
-            - name: nhn__MongoDbParameters__DatabaseName
+            - name: nhn.MongoDbParameters.DatabaseName
               value: {{ .Values.mongodb.databaseName }}
-            - name: nhn__KafkaParameters__ConnectionString
+            - name: nhn.KafkaParameters.ConnectionString
               value: {{ .Values.kafka.connectionString }}
-          image: {{ .Values.tags.image }}
+          image: {{ .Values.categories.image }}
           imagePullPolicy: Always
           ports:
             - containerPort: 80
       restartPolicy: Always
   selector:
     matchLabels:
-      app: nhn-tags
+      app: nhn-categories

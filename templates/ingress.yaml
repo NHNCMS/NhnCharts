@@ -11,18 +11,18 @@ spec:
     - host: {{ .Values.ingress.host }}
       http:
         paths:
-          - path: {{.Values.nhnTags.ingressPrefix}}(/|$)(.*)
+          - path: {{.Values.tags.ingressPrefix}}(/|$)(.*)
             pathType: Prefix
             backend:
               service:
                 name: nhn-tags
                 port:
                   number: 80
-          - path: /
+          - path: {{.Values.categories.ingressPrefix}}(/|$)(.*)
             pathType: Prefix
             backend:
               service:
-                name: nhn-common
+                name: nhn-categories
                 port:
                   number: 80
 
